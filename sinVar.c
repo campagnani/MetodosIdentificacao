@@ -54,6 +54,8 @@ void executaSinVar(int amplitude, double frequenciaMin, double frequenciaPasso, 
 int main (void)
 {
     system ("clear");
+    printf("sinalEntrada = [\n");
     executaDegraus(amp,freqMin,freqPasso,freqMax,taxAmo);
     executaSinVar (amp,freqMin,freqPasso,freqMax,taxAmo);
+    printf("];\n\n");
 }
