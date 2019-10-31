@@ -8,8 +8,19 @@
 #define freqPasso 1     //Incremento de troca de frequencia (uma senoide completa por frequencia)
 #define freqMax 10      //Hz
 #define taxAmo 0.001    //Periodo em segundos
+#define dura 1
 
 long int k=0;
+
+void executaNulo(double duracao, double taxaDeAmostragem)
+{
+    for (double t = 0; t<duracao ; t+=taxaDeAmostragem)
+    {
+        printf("%f\t%d;\n",t, 0);
+        //cout << tempo << "\t" << saida << ";" ;
+        k+=1;
+    }
+}
 
 
 void executaDegraus(int amplitude, double frequenciaMin, double frequenciaPasso, double frequenciaMax, double taxaDeAmostragem)
@@ -53,9 +64,11 @@ void executaSinVar(int amplitude, double frequenciaMin, double frequenciaPasso, 
 
 int main (void)
 {
-    system ("clear");
     printf("sinalEntrada = [\n");
+    executaNulo(dura,taxAmo);
     executaDegraus(amp,freqMin,freqPasso,freqMax,taxAmo);
     executaSinVar (amp,freqMin,freqPasso,freqMax,taxAmo);
+    executaNulo(dura,taxAmo);
     printf("];\n\n");
+    return 0;
 }
